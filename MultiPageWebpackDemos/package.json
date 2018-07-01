@@ -41,6 +41,7 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "^4.3.1",
     "resolve-url-loader": "^2.1.0",
     "url-loader": "^0.5.9"
   }

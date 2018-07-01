@@ -2,19 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
-const CmsMain = () => {
-    return (
-        <div className="main">
-            <div className="mainIco">
+export default class Dog extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
+    render() {
+        return (
+            <div className="main">
+                <div className="mainIco">
+
+                </div>
+                dog
             </div>
-            dog
-            <p>点击下面的链接可跳转</p>
-            <a href="http://localhost:8080">小兔页（index）</a>
-            <br/>
-            <a href="http://localhost:8080/cat">小猫页(cat)</a>
-        </div>
-    )
+        )
+    }
+}
+
+Dog.defaultProps = {
+    title:'狗'
 };
 
-ReactDOM.render(<CmsMain/>, document.querySelector("#root"));
+ReactDOM.render(<Dog/>, document.getElementById("root"));

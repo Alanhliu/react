@@ -1,20 +1,75 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import Lion from '../lion';
+import Dog from '../dog';
+
 import './index.scss';
 
-const Index = () => {
-    return (
-        <div className="index">
-            <div className="indexIco">
-            </div>
-            rabbit,默认打开index页
-            <p>点击下面的链接可跳转</p>
-            <a href="http://localhost:8080/cat">小猫页(cat)</a>
-            <br/>
-            <a href="http://localhost:8080/dog">小狗页(dog)</a>
+const BasicExample = () => (
+    <Router>
+        <div>
+            <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/lion">Lion</Link></li>
+                <li><Link to="/dog">Dog</Link></li>
+            </ul>
+
+            <hr/>
+
+            <Route exact path="/" component={Home}/>
+            <Route path="/lion" component={Lion}/>
+            <Route path="/dog" component={Dog}/>
         </div>
-    )
-};
+    </Router>
+)
+
+const Home = () => (
+    <div>
+        <h2>Home</h2>
+    </div>
+)
+
+const About = () => (
+    <div>
+        <h2>About</h2>
+    </div>
+)
+
+const Topics = ({ match }) => (
+    <div>
+        <h2>Topics</h2>
+        <ul>
+            <li>
+                <Link to={`${match.url}/rendering`}>
+                    Rendering with React
+                </Link>
+            </li>
+            <li>
+                <Link to={`${match.url}/components`}>
+                    Components
+                </Link>
+            </li>
+            <li>
+                <Link to={`${match.url}/props-v-state`}>
+                    Props v. State
+                </Link>
+            </li>
+        </ul>
+
+        <Route path={`${match.url}/:topicId`} component={Topic}/>
+        <Route exact path={match.url} render={() => (
+            <h3>Please select a topic.</h3>
+        )}/>
+    </div>
+)
+
+const Topic = ({ match }) => (
+    <div>
+        <h3>{match.params.topicId}</h3>
+    </div>
+)
 
 
-ReactDOM.render(<Index/>, document.querySelector("#root"));
+ReactDOM.render(<BasicExample/>, document.getElementById('root'));

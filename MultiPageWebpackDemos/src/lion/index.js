@@ -39,7 +39,7 @@ class LionNose extends React.Component {
     }
 }
 
-class Lion extends React.Component {
+export default class Lion extends React.Component {
 
     constructor(props) {
         super(props);
