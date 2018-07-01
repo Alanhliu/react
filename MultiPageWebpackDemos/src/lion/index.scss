@@ -1,0 +1,53 @@
+ul, li, body {
+  margin: 0;
+  padding: 0;
+}
+
+.lion_style1 {
+  background: red;
+
+  h1 {
+    color: green;
+  }
+}
+
+.lion_style2 {
+  background: yellow;
+
+  h1 {
+    color: blue;
+  }
+}
+
+.lion_style3 {
+  background: purple;
+
+  h1 {
+    color: white;
+  }
+}
+
+.lion_title {
+  text-align: center;
+}
+
+.lion_list {
+  //display: flex;
+
+  $height:40px;
+
+  li {
+    margin-left: 0;
+    height: $height;
+    line-height: $height;
+    list-style: none;
+    border-top: 1px solid #e6e6e6;
+
+    span {
+      margin-left: 20px;
+    }
+  }
+  li:last-child {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
